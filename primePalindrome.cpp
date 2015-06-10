@@ -6,7 +6,7 @@
 
 using namespace std;
 
-bool isPalindrome(int num){
+int isPalindrome(int num){
  int dig = 0;
  int n = num;
  int rev = 0;
@@ -17,14 +17,14 @@ bool isPalindrome(int num){
       num = num / 10;
  }
  if (rev==n)
-    return true;
+    return 1;
  else
-    return false;
+    return 0;
 }
 
 int main(){
-	const int upper;
-    int i = 0;
+	int i = 0;
+    const int upper = 1000;
     int k = 0;
     const int lim = (sqrt(upper)+1);
     int tot = 0;
@@ -51,10 +51,10 @@ int main(){
     array [1] = false; // clear index 1 as not prime (an exception)
     
     //Now loop to total the index numbers of the TRUE entries
-    i=0;
-    while (++i<= upper){
-        if (array [i] == true) {
-            tot += i; //add the TRUE index to the total
+    int j=1000;
+    while (--j > 0){
+        if (array [j] == true && isPalindrome[j] == 1){ 
+            std::cout << i << std::endl;
         }
     }
     
