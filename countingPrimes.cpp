@@ -70,29 +70,14 @@ void segmentedSieve(unsigned long int firstLim, unsigned long int limit)
 			if (sieve[n - low]) // n is prime
 			{
 				count++;
-				//allPrimes.push_back((unsigned long int) n-low);
-				if (count >= firstLim)
+				if ((n-low)<= firstLim)
 					firstCount++;
 			}
 		}
 	}
 
-	/* 
-	Dont need push back primes list. We could instead check the value of n-low
-	and if n-low >= first lim then we know the count is accurate?
 
-	
-	for (int ii = 0; ii < count; ii++)
-	{
-		if (allPrimes[ii] >= firstLim)
-		{
-			std:: cout << (count - ii - 1) << std:: endl;
-			break;
-		}
-	}
-	*/
-
-	std::cout << firstCount << std::endl;
+	std::cout << count - firstCount << std::endl;
 	
 }
 
