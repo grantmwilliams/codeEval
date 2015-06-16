@@ -25,6 +25,7 @@ void segmentedSieve(unsigned long int firstLim, unsigned long int limit)
 	unsigned long int s = 2;
 	unsigned long int n = 3;
 	unsigned long int primeCount;
+	long int firstCount = 0;
 	// Vector to sieve with
 	std::vector<char> sieve(segmentSize);
 
@@ -37,7 +38,7 @@ void segmentedSieve(unsigned long int firstLim, unsigned long int limit)
 
 	std::vector<int> primes;
 	std::vector<int> next;
-	std::vector<unsigned long int> allPrimes;
+	//std::vector<unsigned long int> allPrimes;
 
 	for (unsigned long int low = 0; low <= limit; low += segmentSize)
 	{
@@ -69,11 +70,18 @@ void segmentedSieve(unsigned long int firstLim, unsigned long int limit)
 			if (sieve[n - low]) // n is prime
 			{
 				count++;
-				allPrimes.push_back((unsigned long int) n-low);
+				//allPrimes.push_back((unsigned long int) n-low);
+				if (count >= firstLim)
+					firstCount++;
 			}
 		}
 	}
 
+	/* 
+	Dont need push back primes list. We could instead check the value of n-low
+	and if n-low >= first lim then we know the count is accurate?
+
+	
 	for (int ii = 0; ii < count; ii++)
 	{
 		if (allPrimes[ii] >= firstLim)
@@ -82,7 +90,9 @@ void segmentedSieve(unsigned long int firstLim, unsigned long int limit)
 			break;
 		}
 	}
+	*/
 
+	std::cout << firstCount << std::endl;
 	
 }
 
