@@ -61,22 +61,24 @@ void segmentedSieve(unsigned long int limit)
 			next[i] = j - segmentSize;
 		}
 
+		std::cout << "2";
 		for (; n <= high; n += 2)
 		{
 			if (sieve[n - low]) // n is prime
 			{
 				count++;
 				//allPrimes.push_back((unsigned long int) n-low);
+				std::cout << "," << (n-low) << std::endl;
 			}
 		}
 	}
-
+	/* MAYBE NOT NEEDED
 	std:: cout << "2";
 	for (int ii = 0; ii < count-1; ii++){
 		std::cout << "," << allPrimes[ii];
 	}
 	std:: cout << std::endl;
-
+	*/
 }
 
 int main(int argc, char *argv[]) 
